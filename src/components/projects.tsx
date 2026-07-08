@@ -1,50 +1,81 @@
-import { ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { ProjectGallery } from "@/components/project-gallery";
+import { ProjectCard, type Project } from "@/components/project-card";
 
-type Project = {
-  name: string;
-  description: string;
-  tags: string[];
-  status: "published" | "in-progress";
-  liveUrl?: string;
-  repoUrl?: string;
-  images?: string[];
-};
-
-// When a project ships, set status: "published" and fill in liveUrl, repoUrl,
-// and images (paths under /public, e.g. "/projects/task-manager/1.png").
-// The "Visit website" link and "View pictures" gallery appear automatically.
+// Add a project by dropping it in this array with its `category`. A category's
+// heading only renders when it has at least one project, so the section grows
+// as real work lands — never an empty shelf. Screenshots live in
+// /public/projects/<slug>/ and are listed in `images`.
 const PROJECTS: Project[] = [
   {
-    name: "Task Manager",
-    description:
-      "A full CRUD app with user accounts, secure login, and a protected dashboard where you create, organize, and track your tasks.",
-    tags: ["Next.js", "Auth", "Database"],
-    status: "in-progress",
+    slug: "client-onboarding",
+    name: "Client Onboarding Automation",
+    category: "automation",
+    type: "Client Onboarding",
+    tools: ["Make.com", "Airtable", "Notion", "Slack", "Gmail", "Tally"],
+    summary:
+      "One intake form becomes a fully onboarded client across five tools — deduplicated, routed to the right team, and welcomed automatically.",
+    about: [
+      "Manual client onboarding is slow and error-prone — copying form answers between tools, remembering who's new versus returning, and routing each client to the right team by hand.",
+      "This system turns a single intake form into a fully onboarded client with zero manual work. It deduplicates by email so there are never duplicate records, detects new versus returning clients, and routes each to the correct team automatically.",
+      "New clients get their record stamped, an announcement in Slack, a Notion workspace page, and a branded welcome email. Returning clients are recognized by email and routed to the right team based on the service they need — no duplicate records, no manual sorting.",
+      "Built with Make.com orchestrating Tally, Airtable, Notion, Slack, and Gmail. The interesting engineering: a Search → Aggregate → Upsert deduplication pattern and event-versus-state modelling (notifications are events; team ownership is state) that keeps each client owned by exactly one team.",
+    ],
+    liveUrl: "https://tally.so/r/eqpXMo",
+    images: [],
   },
   {
-    name: "Real-time App",
-    description:
-      "A live, multi-user experience powered by WebSockets — a change from one person shows up instantly for everyone else.",
-    tags: ["Next.js", "WebSockets"],
-    status: "in-progress",
+    slug: "ebarangay",
+    name: "eBarangay — Barangay Services System",
+    category: "web",
+    type: "Full-stack Platform",
+    tools: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Auth.js"],
+    summary:
+      "A full-stack system modernizing the paper-based services of a Philippine barangay — residents transact online, officials process from role-based dashboards.",
+    about: [
+      "eBarangay replaces a barangay's paper queue with an online portal: residents and business owners transact online, while officials process everything from role-specific dashboards.",
+      "It's grounded in RA 7160 (the Local Government Code) — roles, permissions, and processes follow the law. The build is core-first and module-by-module, so it's always working and always demo-able.",
+      "A standout piece is the document-based account verification (KYC): residents upload a government ID and proof of residency, an official reviews and approves or rejects, and the whole flow is privacy-first — files sit in private storage behind signed URLs and are automatically purged after 7 days, in line with the Data Privacy Act.",
+    ],
+    badge: "In progress",
+    roadmap: {
+      built: [
+        "Multi-role authentication & access control (residents, business owners, officials) with route guards",
+        "Resident Records (RBI): full CRUD, search, and resident self-profiles",
+        "Document-based account verification (KYC): ID and proof-of-residency uploads with official review — privacy-first, with private storage, signed access, and automatic 7-day purge (Data Privacy Act compliant)",
+        "Public document-verification page (control number / QR)",
+      ],
+      planned: [
+        "Document request → review → sign → issue loop with QR-verifiable official PDFs",
+        "Treasurer fees & receipts",
+        "Automated notifications & scheduled reminders",
+        "Business permits & renewals",
+        "Katarungang Pambarangay (dispute resolution)",
+        "Community programs, service requests & announcements",
+        "Per-role dashboards & auto-generated reports",
+      ],
+    },
+    liveUrl: "https://barangay-system-flax.vercel.app",
+    images: [],
   },
   {
-    name: "API-Driven App",
-    description:
-      "A polished, responsive interface over live third-party data, with smart fetching and caching for a fast experience.",
-    tags: ["Next.js", "REST APIs"],
-    status: "in-progress",
+    slug: "realtime-ops",
+    name: "Real-time Operations & Transaction Platform",
+    category: "web",
+    type: "Real-time Platform",
+    tools: ["Laravel", "PHP", "WebSockets", "MySQL"],
+    summary:
+      "A real-time operations platform for a live-events business — role-based dashboards, cashiering, live updates, and end-of-day reporting.",
+    about: [
+      "A real-time operations platform built end to end for a private live-events business. Staff work from role-based dashboards; a cashier module handles transactions; and every change is pushed live over WebSockets so all connected screens stay in sync instantly.",
+      "At close, the system compiles an automated end-of-day report. Details are generalized here for client confidentiality — no client name, live link, or real data.",
+    ],
+    badge: "Private client",
+    images: [],
   },
-  {
-    name: "Flagship Product",
-    description:
-      "A complete product built end to end — user accounts, roles, online payments, and an admin dashboard.",
-    tags: ["Next.js", "Stripe", "Postgres"],
-    status: "in-progress",
-  },
+];
+
+const CATEGORIES: { id: Project["category"]; label: string }[] = [
+  { id: "automation", label: "Automation" },
+  { id: "web", label: "Web Development" },
 ];
 
 export function Projects() {
@@ -55,85 +86,32 @@ export function Projects() {
           Projects
         </p>
         <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-          What I&apos;m building
+          What I build
         </h2>
         <p className="mt-4 max-w-xl text-muted-foreground">
-          A series of full-stack applications. Each finished project comes with a
-          live demo, screenshots, and open-source code.
+          Two tracks: automation systems that turn manual busywork into hands-off
+          workflows, and full-stack web apps. Tap any card to open the full case
+          study and screenshots.
         </p>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {PROJECTS.map((project) => {
-            const isPublished = project.status === "published";
-            const hasImages = !!project.images && project.images.length > 0;
+        {CATEGORIES.map((category) => {
+          const projects = PROJECTS.filter((p) => p.category === category.id);
+          if (projects.length === 0) return null;
 
-            return (
-              <div
-                key={project.name}
-                className="flex flex-col rounded-2xl border border-border bg-background p-6 shadow-sm"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-medium text-foreground">{project.name}</h3>
-                  {!isPublished && (
-                    <span className="rounded-full border border-olive/30 bg-cream px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
-                      In progress
-                    </span>
-                  )}
-                </div>
+          return (
+            <div key={category.id} className="mt-14">
+              <h3 className="font-serif text-xl font-semibold tracking-tight">
+                {category.label}
+              </h3>
 
-                <p className="mt-3 text-muted-foreground">
-                  {project.description}
-                </p>
-
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <li
-                      key={tag}
-                      className="rounded-full border border-border bg-cream px-3 py-1 text-xs text-foreground/70"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                {isPublished && (
-                  <div className="mt-5 flex flex-wrap items-center gap-2.5">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(buttonVariants({ size: "sm" }), "gap-1.5")}
-                      >
-                        <ExternalLink className="size-3.5" />
-                        Visit website
-                      </a>
-                    )}
-                    {hasImages && (
-                      <ProjectGallery
-                        name={project.name}
-                        images={project.images!}
-                      />
-                    )}
-                    {project.repoUrl && (
-                      <a
-                        href={project.repoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                          buttonVariants({ variant: "outline", size: "sm" }),
-                          "gap-1.5"
-                        )}
-                      >
-                        Code
-                      </a>
-                    )}
-                  </div>
-                )}
+              <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {projects.map((project) => (
+                  <ProjectCard key={project.slug} project={project} />
+                ))}
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

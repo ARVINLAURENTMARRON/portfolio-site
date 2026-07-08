@@ -27,21 +27,28 @@ export function About() {
               <span className="font-medium text-foreground">
                 Saint Louis University, Baguio
               </span>
-              , and a freelance full-stack developer based in Urdaneta City,
-              Pangasinan.
+              , and a freelance automation specialist and full-stack developer
+              based in Urdaneta City, Pangasinan.
             </p>
             <p>
-              I&apos;ve delivered real client work — from a fully responsive
-              product website to securing and hardening a live, high-volume
-              transaction platform: removing critical vulnerabilities, adding
-              server-side access controls and prepared statements against SQL
-              injection, and documenting every step.
+              I build automation systems that connect the tools businesses
+              already use, like Make.com, Airtable, Notion, Slack, and Gmail.
+              This lets repetitive work like client onboarding, data entry, and
+              team routing happen automatically instead of by hand.
             </p>
             <p>
-              I work across the web stack — PHP, MySQL, and JavaScript — and
-              I&apos;m now building with React, Next.js, and TypeScript. I care
-              about secure, reliable, readable code, and I&apos;m always learning
-              something new.
+              The difference with my work is that I can actually code. When a
+              no-code platform hits its limit, I switch to custom scripts and
+              APIs to get the job done. I&apos;ve also delivered real full-stack
+              projects, from a responsive product website to securing a live,
+              high-volume transaction platform where I removed critical
+              vulnerabilities, added server-side access controls and prepared
+              statements to stop SQL injection, and documented every step.
+            </p>
+            <p>
+              I work across the web stack with PHP, MySQL, JavaScript, React,
+              Next.js, and TypeScript, and I care about writing secure, reliable,
+              readable code. I&apos;m always learning something new.
             </p>
           </div>
 

@@ -5,6 +5,7 @@ const ROLES = [
     icon: ShieldCheck,
     title: "Freelance Web Developer — Security Remediation & Maintenance",
     meta: "Confidential client · Live transaction platform",
+    period: "May 2026 – Present",
     points: [
       "Secured and maintained a live, high-volume transaction platform.",
       "Identified and removed critical vulnerabilities left by a previous developer — unauthorized access points, hardcoded credentials, and weak password hashing.",
@@ -53,8 +54,15 @@ export function Experience() {
                   <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-lg bg-olive-soft text-secondary-foreground">
                     <Icon className="size-5" />
                   </span>
-                  <div>
-                    <h3 className="font-medium text-foreground">{role.title}</h3>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
+                      <h3 className="font-medium text-foreground">{role.title}</h3>
+                      {role.period && (
+                        <span className="shrink-0 rounded-full border border-olive/30 bg-cream px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
+                          {role.period}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-muted-foreground">{role.meta}</p>
                   </div>
                 </div>

@@ -19,9 +19,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Arvin Laurent Marron — Full-Stack Developer",
+  title: "Arvin Laurent Marron | Automation Specialist & Full-Stack Developer",
   description:
-    "Arvin Laurent Marron is a full-stack developer from Urdaneta City, Philippines — building responsive, secure web applications with PHP, JavaScript, React, and Next.js.",
+    "I'm Arvin Laurent Marron, and I build automation systems and full-stack web apps. I work with Make.com, Airtable, Notion, and Slack for automation, and React, Next.js, and Laravel for web development. Based in Urdaneta City, Philippines.",
 };
 
 export default function RootLayout({

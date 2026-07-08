@@ -1,6 +1,19 @@
-import { Code, Layers, Database, Wrench, ShieldCheck } from "lucide-react";
+import { Workflow, Code, Layers, Database, Wrench, ShieldCheck } from "lucide-react";
 
 const GROUPS = [
+  {
+    icon: Workflow,
+    title: "Automation",
+    items: [
+      "Make.com",
+      "Airtable",
+      "Notion",
+      "Slack",
+      "Tally",
+      "Gmail / Google Workspace",
+      "Webhooks & APIs",
+    ],
+  },
   {
     icon: Code,
     title: "Languages",
@@ -9,22 +22,27 @@ const GROUPS = [
   {
     icon: Layers,
     title: "Frameworks & Libraries",
-    items: ["React", "Next.js", "Tailwind CSS"],
+    items: ["React", "Next.js", "Laravel", "Tailwind CSS", "Prisma"],
   },
   {
     icon: Database,
     title: "Databases",
-    items: ["MySQL"],
+    items: ["MySQL", "PostgreSQL"],
   },
   {
     icon: Wrench,
     title: "Tools & Platforms",
-    items: ["Git & GitHub", "VS Code", "Vercel", "XAMPP", "phpMyAdmin"],
+    items: ["Git & GitHub", "VS Code", "Vercel", "Auth.js", "phpMyAdmin"],
   },
   {
     icon: ShieldCheck,
     title: "Focus Areas",
-    items: ["Responsive design", "Full-stack development", "Web app security"],
+    items: [
+      "Workflow automation",
+      "Full-stack development",
+      "Web app security",
+      "Responsive design",
+    ],
   },
 ];
 
@@ -67,6 +85,14 @@ export function Skills() {
             );
           })}
         </div>
+
+        <p className="mt-8 text-sm text-muted-foreground">
+          <span className="font-medium text-foreground">
+            Currently expanding into:
+          </span>{" "}
+          n8n · Zapier · GoHighLevel — the automation platforms most in demand
+          for remote roles.
+        </p>
       </div>
     </section>
   );

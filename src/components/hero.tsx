@@ -35,7 +35,7 @@ export function Hero() {
         <div className="flex flex-col items-start gap-5">
           <span className="inline-flex items-center gap-2 rounded-full border border-olive/30 bg-olive-soft px-3 py-1 text-sm font-medium text-secondary-foreground">
             <span className="h-2 w-2 rounded-full bg-olive" />
-            Available for junior roles
+            Available for remote automation & VA roles
           </span>
 
           <h1 className="font-serif text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
@@ -43,13 +43,15 @@ export function Hero() {
           </h1>
 
           <p className="text-xl font-medium text-foreground/80">
-            Full-Stack Developer
+            Automation Specialist & Full-Stack Developer
           </p>
 
           <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
-            I build responsive, secure web applications — from clean front-ends to
-            hardened back-ends. Computer Science student in Urdaneta City,
-            Philippines, focused on writing reliable code and always learning.
+            I help businesses automate the repetitive parts of their work by
+            connecting the tools they already use, like Make.com, Airtable,
+            Notion, and Slack. When no-code isn&apos;t enough, I write the custom
+            code to fill the gap. I&apos;m a Computer Science student based in
+            Urdaneta City, Philippines.
           </p>
 
           <div className="mt-1 flex flex-wrap items-center gap-3">
