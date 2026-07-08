@@ -3,12 +3,12 @@ import { ShieldCheck, Globe, GraduationCap, Award } from "lucide-react";
 const ROLES = [
   {
     icon: ShieldCheck,
-    title: "Freelance Web Developer — Security Remediation & Maintenance",
+    title: "Freelance Web Developer · Security Remediation & Maintenance",
     meta: "Confidential client · Live transaction platform",
     period: "May 2026 – Present",
     points: [
       "Secured and maintained a live, high-volume transaction platform.",
-      "Identified and removed critical vulnerabilities left by a previous developer — unauthorized access points, hardcoded credentials, and weak password hashing.",
+      "Identified and removed critical vulnerabilities left by a previous developer: unauthorized access points, hardcoded credentials, and weak password hashing.",
       "Implemented hardening: server-side access controls, prepared statements against SQL injection, and a migration plan toward stronger hashing.",
       "Documented the full process for reliability and transparency.",
     ],
@@ -16,7 +16,7 @@ const ROLES = [
   },
   {
     icon: Globe,
-    title: "Freelance Web Developer — Responsive Product Website",
+    title: "Freelance Web Developer · Responsive Product Website",
     meta: "Client product · Marketing site",
     points: [
       "Designed and built a fully responsive marketing website for a client's product, working seamlessly across desktop and mobile.",
@@ -26,8 +26,8 @@ const ROLES = [
 ];
 
 const CERTS = [
-  "Trend Micro — Cyber Defense Society 2024",
-  "AWS — Cloud Horizons: The AWS Kickoff",
+  "Trend Micro · Cyber Defense Society 2024",
+  "AWS · Cloud Horizons: The AWS Kickoff",
   "2nd International AI Edutech Summit",
 ];
 

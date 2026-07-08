@@ -6,6 +6,9 @@ const GROUPS = [
     title: "Automation",
     items: [
       "Make.com",
+      "Zapier",
+      "n8n",
+      "GoHighLevel",
       "Airtable",
       "Notion",
       "Slack",
@@ -32,13 +35,21 @@ const GROUPS = [
   {
     icon: Wrench,
     title: "Tools & Platforms",
-    items: ["Git & GitHub", "VS Code", "Vercel", "Auth.js", "phpMyAdmin"],
+    items: [
+      "Git & GitHub",
+      "VS Code",
+      "Claude Code",
+      "Vercel",
+      "Auth.js",
+      "phpMyAdmin",
+    ],
   },
   {
     icon: ShieldCheck,
     title: "Focus Areas",
     items: [
       "Workflow automation",
+      "AI-assisted development",
       "Full-stack development",
       "Web app security",
       "Responsive design",
@@ -85,14 +96,6 @@ export function Skills() {
             );
           })}
         </div>
-
-        <p className="mt-8 text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">
-            Currently expanding into:
-          </span>{" "}
-          n8n · Zapier · GoHighLevel — the automation platforms most in demand
-          for remote roles.
-        </p>
       </div>
     </section>
   );
