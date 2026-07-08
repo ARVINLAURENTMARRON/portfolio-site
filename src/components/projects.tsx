@@ -71,6 +71,22 @@ const PROJECTS: Project[] = [
     badge: "Private client",
     images: [],
   },
+  {
+    slug: "firban-cosmetics",
+    name: "FIRBAN Cosmetics",
+    category: "web",
+    type: "Product Website",
+    tools: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    summary:
+      "A responsive product website for a real cosmetics brand, with separate desktop and mobile layouts, an animated landing, and a built-in order flow.",
+    about: [
+      "FIRBAN Cosmetics is a product website I built for a real cosmetics brand. It shows off the products, tells the brand story, and lets customers place an order, all from one clean and responsive site.",
+      "I built the front end by hand with plain HTML, CSS, and JavaScript, no framework. It has separate layouts for desktop and mobile so it looks right on any screen, an animated landing section, and smooth in-page navigation across Home, Our Products, Order Now, and About.",
+    ],
+    badge: "Client work",
+    liveUrl: "https://firban-cosmetics.vercel.app",
+    images: [],
+  },
 ];
 
 const CATEGORIES: { id: Project["category"]; label: string }[] = [
