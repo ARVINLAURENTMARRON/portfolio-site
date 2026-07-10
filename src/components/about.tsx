@@ -23,12 +23,13 @@ export function About() {
         <div className="mt-10 grid gap-12 md:grid-cols-[1.5fr_1fr]">
           <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>
-              I&apos;m a third-year BS Computer Science student at{" "}
+              I&apos;m a freelance automation specialist and full-stack developer
+              based in Urdaneta City, Pangasinan, with a background in Computer
+              Science at{" "}
               <span className="font-medium text-foreground">
                 Saint Louis University, Baguio
               </span>
-              , and a freelance automation specialist and full-stack developer
-              based in Urdaneta City, Pangasinan.
+              .
             </p>
             <p>
               I build automation systems that connect the tools businesses

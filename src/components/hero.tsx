@@ -47,11 +47,11 @@ export function Hero() {
           </p>
 
           <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
-            I help businesses automate the repetitive parts of their work by
-            connecting the tools they already use, like Make.com, Airtable,
-            Notion, and Slack. When no-code isn&apos;t enough, I write the custom
-            code to fill the gap. I&apos;m a Computer Science student based in
-            Urdaneta City, Philippines.
+            I build automation systems that connect the tools a business already
+            uses, like Make.com, Airtable, Notion, and Slack, so repetitive work
+            runs on its own. When no-code isn&apos;t enough, I write the custom
+            code to fill the gap. I&apos;m a developer based in Urdaneta City,
+            Philippines.
           </p>
 
           <div className="mt-1 flex flex-wrap items-center gap-3">
