@@ -20,7 +20,12 @@ const PROJECTS: Project[] = [
       "Built with Make.com orchestrating Tally, Airtable, Notion, Slack, and Gmail. The interesting engineering: a Search, Aggregate, then Upsert deduplication pattern, event-versus-state modelling (notifications are events, team ownership is state), and change detection that only reassigns a returning client when the service they need actually changes.",
     ],
     liveUrl: "https://tally.so/r/eqpXMo",
-    images: [],
+    images: [
+      "/projects/client-onboarding/1.png",
+      "/projects/client-onboarding/2.png",
+      "/projects/client-onboarding/3.png",
+      "/projects/client-onboarding/4.png",
+    ],
   },
   {
     slug: "ebarangay",
@@ -54,7 +59,12 @@ const PROJECTS: Project[] = [
       ],
     },
     liveUrl: "https://barangay-system-flax.vercel.app",
-    images: [],
+    images: [
+      "/projects/ebarangay/1.png",
+      "/projects/ebarangay/2.png",
+      "/projects/ebarangay/3.png",
+      "/projects/ebarangay/4.png",
+    ],
   },
   {
     slug: "realtime-ops",
@@ -85,7 +95,10 @@ const PROJECTS: Project[] = [
     ],
     badge: "Client work",
     liveUrl: "https://firban-cosmetics.vercel.app",
-    images: [],
+    images: [
+      "/projects/firban-cosmetics/1.png",
+      "/projects/firban-cosmetics/2.png",
+    ],
   },
 ];
 
