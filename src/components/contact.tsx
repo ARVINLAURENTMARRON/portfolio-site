@@ -13,7 +13,7 @@ const MAP_SRC =
 export function Contact() {
   return (
     <section id="contact" className="scroll-mt-16 bg-cream">
-      <div className="mx-auto w-full max-w-3xl px-6 py-20 text-center md:py-28">
+      <div className="mx-auto w-full max-w-3xl px-6 py-14 text-center md:py-28">
         <p className="font-serif text-sm uppercase tracking-[0.2em] text-olive">
           Contact
         </p>

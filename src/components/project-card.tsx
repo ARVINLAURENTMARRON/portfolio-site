@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export type Project = {
   slug: string; // used for the /public/projects/<slug>/ image folder
@@ -33,11 +34,20 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <>
       {/* Compact, fixed-height tile — the whole card is clickable */}
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="flex h-72 flex-col overflow-hidden rounded-2xl border border-border bg-background p-6 text-left shadow-sm transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-olive"
-      >
+      <div className="relative h-full rounded-2xl">
+        <GlowingEffect
+          spread={40}
+          glow
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+          borderWidth={2}
+        />
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-background p-6 text-left shadow-sm transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-olive"
+        >
         <p className="font-serif text-xs uppercase tracking-[0.18em] text-olive">
           {project.type}
         </p>
@@ -51,7 +61,7 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
 
-        <p className="mt-3 line-clamp-3 text-sm text-muted-foreground">
+        <p className="mt-3 text-sm text-muted-foreground">
           {project.summary}
         </p>
 
@@ -75,7 +85,8 @@ export function ProjectCard({ project }: { project: Project }) {
           View case study
           <ArrowUpRight className="size-4" />
         </span>
-      </button>
+        </button>
+      </div>
 
       {open && <ProjectModal project={project} onClose={() => setOpen(false)} />}
     </>

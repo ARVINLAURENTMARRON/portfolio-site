@@ -1,18 +1,18 @@
 const STRENGTHS = [
   "Strong work ethic",
-  "Fast self-directed learner",
-  "Curious & growth-driven",
+  "Fast independent learner",
+  "Curious & eager to grow",
   "Adaptable",
   "Clear communicator",
   "Problem solver",
-  "Detail-oriented",
+  "Thorough",
   "Accountable",
 ];
 
 export function About() {
   return (
     <section id="about" className="scroll-mt-16">
-      <div className="mx-auto w-full max-w-5xl px-6 py-20 md:py-28">
+      <div className="mx-auto w-full max-w-7xl px-6 py-14 md:py-28">
         <p className="font-serif text-sm uppercase tracking-[0.2em] text-olive">
           About
         </p>
@@ -38,12 +38,10 @@ export function About() {
               team routing happen automatically instead of by hand.
             </p>
             <p>
-              The difference with my work is that I can actually code. When a
-              no-code platform hits its limit, I switch to custom scripts and
+              The difference with my work is that I can actually code. When those tools hit their limit, I switch to custom scripts and
               APIs to get the job done. I&apos;ve also delivered real full-stack
-              projects, from a responsive product website to securing a live,
-              high-volume transaction platform where I removed critical
-              vulnerabilities, added server-side access controls and prepared
+              projects, from a responsive product website to securing a live, heavily used transaction platform where I removed critical
+              vulnerabilities, added backend access controls and prepared
               statements to stop SQL injection, and documented every step.
             </p>
             <p>

@@ -1,5 +1,9 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import type { SVGProps } from "react";
+import { motion } from "framer-motion";
 import { FileText, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -22,6 +26,19 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export function Hero() {
+  const words = useMemo(
+    () => ["automations", "workflows", "integrations", "websites", "systems"],
+    []
+  );
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setIndex((i) => (i === words.length - 1 ? 0 : i + 1));
+    }, 2200);
+    return () => clearTimeout(id);
+  }, [index, words]);
+
   return (
     <section id="top" className="relative overflow-hidden">
       {/* soft olive glow in the background */}
@@ -30,28 +47,50 @@ export function Hero() {
         className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-olive/20 blur-3xl"
       />
 
-      <div className="mx-auto grid w-full max-w-5xl items-center gap-12 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:py-28">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-14 md:grid-cols-[1.2fr_0.8fr] md:py-28">
         {/* Left: intro */}
         <div className="flex flex-col items-start gap-5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-olive/30 bg-olive-soft px-3 py-1 text-sm font-medium text-secondary-foreground">
-            <span className="h-2 w-2 rounded-full bg-olive" />
-            Available for remote automation & VA roles
-          </span>
-
           <h1 className="font-serif text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
             Arvin Laurent <span className="text-olive">Marron</span>
           </h1>
 
-          <p className="text-xl font-medium text-foreground/80">
+          {/* Animated rotating tagline */}
+          <div className="flex items-center gap-2 font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
+            <span>I build</span>
+            <span className="relative grid h-[1.2em] overflow-hidden">
+              {/* invisible sizer keeps the box as wide as the longest word */}
+              <span className="invisible" aria-hidden="true">
+                integrations
+              </span>
+              {words.map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="col-start-1 row-start-1 text-olive"
+                  initial={{ opacity: 0, y: "-120%" }}
+                  transition={{ type: "spring", stiffness: 60, damping: 12 }}
+                  animate={
+                    index === i
+                      ? { y: "0%", opacity: 1 }
+                      : { y: index > i ? "-120%" : "120%", opacity: 0 }
+                  }
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
+          </div>
+
+          <p className="text-base font-medium text-muted-foreground">
             Automation Specialist & Full-Stack Developer
           </p>
 
           <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
-            I build automation systems that connect the tools a business already
-            uses, like Make.com, Airtable, Notion, and Slack, so repetitive work
-            runs on its own. When no-code isn&apos;t enough, I write the custom
-            code to fill the gap. I&apos;m a developer based in Urdaneta City,
-            Philippines.
+            I connect the tools a business already uses, like Make.com, n8n,
+            Airtable, Notion, and Slack, so repetitive work runs on its own. When
+            those tools aren&apos;t enough, I build full-stack web apps with React,
+            Next.js, and Laravel, backed by MySQL or PostgreSQL. I also secure and
+            maintain live production systems. I&apos;m a developer based in
+            Urdaneta City, Philippines.
           </p>
 
           <div className="mt-1 flex flex-wrap items-center gap-3">
